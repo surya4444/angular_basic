@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <input type="text" (input)="getUsername($event)" />
+  <!-- <p>{{username}}</p> -->
+  <input type="text" [(ngModel)]="username" />
+  <p>{{username}}</p>
+  <button [disabled]="isEmpty" class="btn btn-primary">button</button>
+  <p>{{isNotEmpty}}</p>
+  <div *ngFor="let name of names">
+    <ng-container *ngIf="name === 'suryateja'; else second">
+      <p>{{name}} last son</p>
+    </ng-container>
+    <ng-template #second>
+      <ng-container *ngIf="name === 'lokesh' else three">
+        <p>{{name}} second son</p>
+      </ng-container>
+      <ng-template #three>
+        <p>{{name}} first daughter</p>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>
